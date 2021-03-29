@@ -18,6 +18,9 @@
         <java.version>11</java.version>
         <jjwt.version>0.9.1</jjwt.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
+        <sonar.projectKey>kuhniia_kuhniia-back-end-service</sonar.projectKey>
+        <sonar.organization>kuhniia</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
