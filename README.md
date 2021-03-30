@@ -1,6 +1,6 @@
-##HELLO
+## HELLO
 
-#Run the following to start the app
+# Run the following to start the app
 
 <code>docker build --tag kuhniia .</code>
 
