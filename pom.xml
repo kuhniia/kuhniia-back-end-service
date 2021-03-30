@@ -21,6 +21,7 @@
         <sonar.projectKey>kuhniia_kuhniia-back-end-service</sonar.projectKey>
         <sonar.organization>kuhniia</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <mockito.vesrion>3.8.0</mockito.vesrion>
     </properties>
 
     <dependencies>
@@ -79,6 +80,14 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.vesrion}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -158,5 +167,19 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+                <sonar.organization>kuhniia</sonar.organization>
+                <!--suppress UnresolvedMavenProperty -->
+                <sonar.login>${env.SONAR_TOKEN}</sonar.login>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
