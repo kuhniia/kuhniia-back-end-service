@@ -173,6 +173,12 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+                <sonar.organization>kuhniia</sonar.organization>
+                <!--suppress UnresolvedMavenProperty -->
+                <sonar.login>${env.SONAR_TOKEN}</sonar.login>
+            </properties>
         </profile>
     </profiles>
 
