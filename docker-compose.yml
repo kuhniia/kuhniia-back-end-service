@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  postgres_db:
+    image: postgres
+    container_name: postgres_db_compose
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=kuhniia
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    restart: always
+    volumes:
+      - db_data:/data/db
+  kuhniia-app:
+    image: kuhniia:latest
+    container_name: kuhniia-service
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres_db
+    restart: always
+
+volumes:
+  db_data:
+

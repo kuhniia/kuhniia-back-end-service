@@ -12,8 +12,24 @@
 
 
 
-## Run the following to start the app
+# Run the following to start the app
 
-<code>docker build --tag kuhniia .</code>
+# Build the app
+
+<code> mvn clean package -DskipTests -f pom.xml </code>
+
+# Build the docker container 
+
+<code> docker build -t kuhniia . </code>
+
+# Start docker-compose
+
+<code> docker-compose up -d </code>
+
+# Connect to DB and execute
+
+<code> CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; </code>
+
+# Run the container
 
 <code>docker run -dp 8080:8080 --name kuhniia-back-end kuhniia</code>
