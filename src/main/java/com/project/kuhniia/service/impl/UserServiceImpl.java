@@ -1,7 +1,7 @@
 package com.project.kuhniia.service.impl;
 
 import com.project.kuhniia.dto.UserDto;
-import com.project.kuhniia.dto.mapper.UserMapper;
+import com.project.kuhniia.dto.mapper.UserDtoMapper;
 import com.project.kuhniia.entity.Role;
 import com.project.kuhniia.entity.User;
 import com.project.kuhniia.repository.UserRepository;
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void register(UserDto userDto) {
-        User user = Mappers.getMapper(UserMapper.class).dtoToUser(userDto);
+        User user = Mappers.getMapper(UserDtoMapper.class).dtoToUser(userDto);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(Role.USER);
         userRepository.save(user);

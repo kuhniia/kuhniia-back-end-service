@@ -5,7 +5,7 @@ import com.project.kuhniia.entity.User;
 import org.mapstruct.Mapper;
 
 @Mapper
-public interface UserMapper {
+public interface UserDtoMapper {
 
     UserDto userToUserDto(User user);
 
