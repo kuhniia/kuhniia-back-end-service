@@ -33,9 +33,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-        User user = userService.findByEmail(loginRequest.getUsername());
-        String token = jwtTokenProvider.generateToken(loginRequest.getUsername(), user.getRole().name());
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
+        User user = userService.findByEmail(loginRequest.getEmail());
+        String token = jwtTokenProvider.generateToken(loginRequest.getEmail(), user.getRole().name());
         return ResponseEntity.ok(Map.of("token", token));
     }
 
